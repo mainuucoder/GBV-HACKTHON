@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 30 20% 97%;
+    --foreground: 25 40% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 25 40% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 25 40% 15%;
+
+    /* Rich brown - primary brand */
+    --primary: 25 50% 35%;
+    --primary-foreground: 30 20% 98%;
+    
+    /* Warm terracotta */
+    --secondary: 15 70% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 30 20% 92%;
+    --muted-foreground: 25 15% 45%;
+
+    /* Golden accent */
+    --accent: 38 90% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 20% 88%;
+    --input: 30 20% 88%;
+    --ring: 25 50% 35%;
+
+    --radius: 0.75rem;
+
+    /* Custom design tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(25 50% 35%), hsl(15 70% 50%));
+    --subtle-gradient: linear-gradient(180deg, hsl(30 25% 96%), hsl(30 20% 92%));
+    --earth-gradient: linear-gradient(120deg, hsl(25 50% 35%), hsl(38 90% 50%), hsl(15 70% 50%));
+    --shadow-soft: 0 4px 20px -4px hsl(25 50% 35% / 0.2);
+    --shadow-strong: 0 10px 40px -10px hsl(25 50% 35% / 0.35);
+    --shadow-warm: 0 8px 30px -8px hsl(15 70% 50% / 0.3);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 25 30% 12%;
+    --foreground: 30 20% 95%;
+
+    --card: 25 25% 16%;
+    --card-foreground: 30 20% 95%;
+
+    --popover: 25 25% 16%;
+    --popover-foreground: 30 20% 95%;
+
+    --primary: 25 60% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 15 75% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 25 20% 22%;
+    --muted-foreground: 30 15% 65%;
+
+    --accent: 38 90% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 25 20% 22%;
+    --input: 25 20% 22%;
+    --ring: 25 60% 45%;
+
+    --hero-gradient: linear-gradient(135deg, hsl(25 60% 40%), hsl(15 75% 45%));
+    --subtle-gradient: linear-gradient(180deg, hsl(25 30% 12%), hsl(25 25% 16%));
+    --earth-gradient: linear-gradient(120deg, hsl(25 60% 40%), hsl(38 90% 50%), hsl(15 75% 45%));
+    --shadow-soft: 0 4px 20px -4px hsl(25 60% 45% / 0.3);
+    --shadow-strong: 0 10px 40px -10px hsl(25 60% 45% / 0.4);
+    --shadow-warm: 0 8px 30px -8px hsl(15 75% 55% / 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}

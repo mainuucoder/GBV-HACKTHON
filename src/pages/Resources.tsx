@@ -11,7 +11,6 @@ const Resources = () => {
   // ==================== DIGITAL SAFETY GUIDE FUNCTIONS ====================
   const downloadPrivacyHandbook = () => {
     toast.info("Redirecting to Online Privacy Handbook...");
-    // Redirect to external privacy guide
     setTimeout(() => {
       window.open("https://www.privacyinternational.org/learn/online-privacy-guide", "_blank");
     }, 1000);
@@ -28,19 +27,11 @@ const Resources = () => {
 
   // ==================== LEGAL RESOURCES FUNCTIONS ====================
   const openDigitalRights = () => {
-    toast.info("Opening Digital Rights Resources...");
-    // Redirect to digital rights organization
-    setTimeout(() => {
-      window.open("https://www.digitalrightsafrica.org/resources", "_blank");
-    }, 1000);
+    navigate("/resources/digital-rights");
   };
 
   const openCybercrimeReporting = () => {
-    toast.info("Opening Cybercrime Reporting Portal...");
-    // Redirect to official cybercrime reporting
-    setTimeout(() => {
-      window.open("https://www.interpol.int/Crimes/Cybercrime/Report-cybercrime", "_blank");
-    }, 1000);
+    navigate("/resources/cybercrime-reporting");
   };
 
   const openLegalContacts = () => {
@@ -50,18 +41,13 @@ const Resources = () => {
   // ==================== TUTORIAL VIDEOS FUNCTIONS ====================
   const openFacebookTutorial = () => {
     toast.info("Opening Facebook Privacy Tutorial...");
-    // Redirect to Facebook's official privacy guide
     setTimeout(() => {
       window.open("https://www.facebook.com/help/325807937506242", "_blank");
     }, 1000);
   };
 
   const openInstagramTutorial = () => {
-    toast.info("Opening Instagram Safety Features...");
-    // Redirect to Instagram's safety center
-    setTimeout(() => {
-      window.open("https://help.instagram.com/196883487377501", "_blank");
-    }, 1000);
+    navigate("/resources/instagram-safety");
   };
 
   const openWhatsAppSecurity = () => {
@@ -73,18 +59,13 @@ const Resources = () => {
   const connectCrisisHelpline = () => {
     toast.success("Connecting you to crisis support...");
     setTimeout(() => {
-      // Using a real GBV helpline number (example)
       window.open("tel:+27800123456");
       toast.info("Dialing GBV Emergency Helpline...");
     }, 2000);
   };
 
   const openMentalHealthResources = () => {
-    toast.info("Opening Mental Health Resources...");
-    // Redirect to mental health organization
-    setTimeout(() => {
-      window.open("https://www.who.int/health-topics/mental-health", "_blank");
-    }, 1000);
+    navigate("/resources/mental-health");
   };
 
   const openSupportGroups = () => {
@@ -97,6 +78,7 @@ const Resources = () => {
       title: "Digital Safety Guide",
       description: "Learn how to protect yourself online",
       color: "text-blue-600",
+      bgColor: "bg-blue-600",
       resources: [
         {
           title: "Online Privacy Handbook",
@@ -120,6 +102,7 @@ const Resources = () => {
       title: "Legal Resources",
       description: "Know your digital rights and legal options",
       color: "text-green-600",
+      bgColor: "bg-green-600",
       resources: [
         {
           title: "Digital Rights in Africa",
@@ -143,6 +126,7 @@ const Resources = () => {
       title: "Tutorial Videos",
       description: "Step-by-step guides on privacy settings",
       color: "text-purple-600",
+      bgColor: "bg-purple-600",
       resources: [
         {
           title: "Facebook Privacy Settings",
@@ -166,6 +150,7 @@ const Resources = () => {
       title: "Support Network",
       description: "Find mental health and crisis support",
       color: "text-orange-600",
+      bgColor: "bg-orange-600",
       resources: [
         {
           title: "24/7 Crisis Helpline",
@@ -588,11 +573,11 @@ const Resources = () => {
               const Icon = category.icon;
               return (
                 <Card key={index} className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/90 backdrop-blur-sm overflow-hidden">
-                  <div className={`absolute top-0 left-0 w-1 h-full ${category.color.replace('text-', 'bg-')}`}></div>
+                  <div className={`absolute top-0 left-0 w-1 h-full ${category.bgColor}`}></div>
                   <CardHeader className="pb-4 relative">
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
-                        <div className={`p-3 rounded-2xl w-fit ${category.color.replace('text-', 'bg-')} bg-opacity-10 group-hover:scale-110 transition-transform duration-300 mb-4`}>
+                        <div className={`p-3 rounded-2xl w-fit ${category.bgColor} bg-opacity-10 group-hover:scale-110 transition-transform duration-300 mb-4`}>
                           <Icon className={`w-8 h-8 ${category.color}`} />
                         </div>
                         <CardTitle className="text-2xl font-bold text-slate-800 mb-3 group-hover:text-purple-600 transition-colors duration-300">
@@ -628,6 +613,44 @@ const Resources = () => {
                 </Card>
               );
             })}
+          </div>
+
+          {/* Quick Resources Grid */}
+          <div className="mb-12">
+            <h2 className="text-3xl font-bold text-center text-slate-800 mb-8">
+              Quick Access Resources
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <Card className="border-0 bg-gradient-to-br from-blue-500 to-purple-500 text-white shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer group" onClick={openSocialMediaSafety}>
+                <CardContent className="p-6 text-center">
+                  <div className="bg-white/20 rounded-2xl p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <Shield className="w-8 h-8" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-2">Social Media Safety</h3>
+                  <p className="text-blue-100 text-sm">Complete guides for all platforms</p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-0 bg-gradient-to-br from-green-500 to-teal-500 text-white shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer group" onClick={openDigitalRights}>
+                <CardContent className="p-6 text-center">
+                  <div className="bg-white/20 rounded-2xl p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <FileText className="w-8 h-8" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-2">Digital Rights</h3>
+                  <p className="text-green-100 text-sm">Know your legal protections</p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-0 bg-gradient-to-br from-purple-500 to-pink-500 text-white shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer group" onClick={openMentalHealthResources}>
+                <CardContent className="p-6 text-center">
+                  <div className="bg-white/20 rounded-2xl p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <Heart className="w-8 h-8" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-2">Mental Health</h3>
+                  <p className="text-purple-100 text-sm">Support & counseling resources</p>
+                </CardContent>
+              </Card>
+            </div>
           </div>
 
           {/* Additional Help Section */}

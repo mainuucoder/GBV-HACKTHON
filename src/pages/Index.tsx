@@ -1167,7 +1167,7 @@ const Index = () => {
             </div>
           </div>
           <div className="pt-8 border-t border-amber-700 text-center text-sm text-amber-200">
-            <p>© 2024 Safeguard Africa. Empowering digital safety for all.</p>
+            <p>© 2025 Safeguard Africa. Empowering digital safety for all.</p>
           </div>
         </div>
       </footer>
